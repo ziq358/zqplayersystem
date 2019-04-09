@@ -28,6 +28,7 @@
         <module>eureka-client2</module>
         <module>gateway</module>
         <module>feign</module>
+        <module>config</module>
     </modules>
 
     <!--依赖的版本管理-->

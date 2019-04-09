@@ -1,0 +1,21 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: config
+  profiles:
+    active: dev
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/ziq358/zqplayersystem.git #配置git仓库地址
+          searchPaths: myconfig #配置仓库路径
+          username: eeee #访问git仓库的用户名
+          password: eeee #访问git仓库的用户密码
+      label: master #配置仓库的分支
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+
