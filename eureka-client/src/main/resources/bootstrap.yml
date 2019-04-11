@@ -1,11 +1,19 @@
 spring:
+  application:
+    name: eureka-client1 #如果后面的其他配置文件有相同配置，会被覆盖
+  profiles:
+    active: local
   cloud:
     config:
-      name: eureka-client
-      label: master
+      #优先级
+      #没设置 profile: dev 会读取上面设置的local，
+      #设置后 读取 git 上的eureka-client-dev.yml
+      profile: dev #指定配置环境，配置文件如果是多环境则取名类似：config-dev.yml
+      name: eureka-client #指定配置文件名字（多个配置文件以英文逗号隔开）
+      label: master  #git仓库分支名
       discovery:
         enabled: true
-        serviceId: config
+        serviceId: config #连接的配置中心名字（applicaiton.name）
 eureka:
   client:
     service-url:
