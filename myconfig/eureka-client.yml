@@ -1,8 +1,15 @@
 server:
   port: 8008
 spring:
-  application:
-    name: eureka-client
+  zipkin:
+    base-url: http://localhost:9411
+    #指定 zipkinServer 的地址 需要 从网络上下载 Zipkin 服务端的可执行 jar 包
+    #运行jar包 java -jar zipkin.jar
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1 #指定采样请求的百分比（默认为 0.1，即 10%）
 management:
   endpoints:
     web:
